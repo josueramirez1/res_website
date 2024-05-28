@@ -1,4 +1,5 @@
 @forward "boilerplate";
 @forward "typography";
+@forward "colors";
 
-// _index.scss is bringing what is forwarded here to get forwarded to the main SASS file
+// _index.scss is bringing what is forwarded here to get forwarded to the main SASS file called "style.scss"

@@ -1,3 +1,6 @@
+// SASS variables (legend websites)
+@use "../util/" as u;
+
 html {
   box-sizing: border-box;
 }
@@ -12,8 +15,9 @@ body {
   // Reset rules
   margin: 0;
   padding: 0;
-
-  font-family: Arial, Helvetica, sans-serif;
-  background-color: hsl(0, 0%, 13%);
-  color: hsl(0, 0%, 100%);
+  // SASS variables (legend websites)
+  font-family: u.$font;
+  // CSS custom properties
+  background-color: var(--background-color);
+  color: var(--text-color);
 }
