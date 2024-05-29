@@ -1,4 +1,4 @@
-// SASS variables (legend websites)
+// use @use to add SASS variables
 @use "../util/" as u;
 
 html {
@@ -20,4 +20,7 @@ body {
   // CSS custom properties
   background-color: var(--background-color);
   color: var(--text-color);
+  // One way to center items in layout
+  // display: grid;
+  // justify-content: center;
 }

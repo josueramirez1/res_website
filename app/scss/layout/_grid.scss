@@ -1,10 +1,20 @@
+// use @use to load mix in
+@use "../util/" as u;
+
 .grid {
   display: grid;
   grid-template-columns: 1fr;
   grid-template-rows: auto auto;
   gap: 40px;
+  // Traditional way
+  // max-width: 1000px;
+  // New way to set width dynamically
+  width: min(100% - 40px, 1000px);
+  // This is another way to center items without making margin top bottom to zero.
+  margin-inline: auto;
 
-  @media (min-width: 900px) {
+  // use @include to add mixin
+  @include u.breakpoint(large) {
     // em for media queries to scale up the browser
     grid-template-columns: 2fr 1fr;
     grid-template-rows: auto;
@@ -17,9 +27,26 @@
 
   &__main {
     background-color: hsl(240, 99%, 33%);
+
+    @include u.breakpoint(medium) {
+      background-color: hsl(120, 100%, 16%);
+    }
+
+    @include u.breakpoint(large) {
+      background-color: hsl(39, 100%, 35%);
+    }
   }
 
   &__sidebar {
     background-color: hsl(300, 100%, 30%);
+
+    // @media (max-width: 56.25em)
+    @include u.breakpoint-down(medium) {
+      text-align: center;
+    }
+
+    @include u.breakpoint-down(small) {
+      text-align: right;
+    }
   }
 }
