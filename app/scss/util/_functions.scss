@@ -1,0 +1,15 @@
+@use "sass:math"; // Sass variables need to start with dollar sign
+
+// fontsize: rem(30) for 30px to convert
+// Throw an error if the parameter has a unit
+@function rem($pixel) {
+  // If $pixel has a unit, throw an error
+  @if math.is-unitless($pixel) {
+    @return math.div($pixel, 16) + rem;
+  } @else {
+    @error "Don\'t use units when using the rem() function; only numbers";
+  }
+  // Otherwise (else) divid $pixel by 16 to return rems
+  // divide $pixel by 16 to return rems
+  // When creating function good idea to write everything that you want to do with it.
+}

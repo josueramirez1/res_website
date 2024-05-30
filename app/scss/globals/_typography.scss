@@ -1,3 +1,5 @@
+@use "../util/" as u;
+
 h1,
 h2,
 h3 {
@@ -6,8 +8,36 @@ h3 {
   margin-top: 0;
 }
 
+h1 {
+  // mobile device would use 375px so if we wanted to end up with 28px on mobile devices use 28/375
+  // font-size: .75vw;
+  // The fontsize will be at least 16px
+  // font-size: (16px + 2vw)
+  // clamp function helps create a minimum/maximum font size
+  // font-size: clamp(28px, 16px + 2vw, 42px);
+  // font-size: clamp(1.75rem, 1rem + 2vw, 2.5rem);
+  font-size: clamp(u.rem(28), u.rem(16) + 2vw, u.rem(40));
+
+  // font-size: 28px;
+
+  // @include u.breakpoint(medium) {
+  //   font-size: 36px;
+  // }
+
+  // @include u.breakpoint(large) {
+  //   font-size: 42px;
+  // }
+}
+
+h2 {
+  // font-size: clamp(22px, 14px +1.5vw, 36px);
+  // font-size: clamp(1.375rem, 0.875rem + 1.5vw, 2.25rem);
+  font-size: clamp(u.rem(22), u.rem(14) + 1.5vw, u.rem(36));
+}
+
 p {
   margin-top: 0;
+  font-size: u.rem(16);
 }
 
 a,
