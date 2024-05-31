@@ -3,7 +3,6 @@
 // fontsize: rem(30) for 30px to convert
 // Throw an error if the parameter has a unit
 @function rem($pixel) {
-  // If $pixel has a unit, throw an error
   @if math.is-unitless($pixel) {
     @return math.div($pixel, 16) + rem;
   } @else {
@@ -12,4 +11,12 @@
   // Otherwise (else) divid $pixel by 16 to return rems
   // divide $pixel by 16 to return rems
   // When creating function good idea to write everything that you want to do with it.
+}
+
+@function em($pixel) {
+  @if math.is-unitless($pixel) {
+    @return math.div($pixel, 16) + em;
+  } @else {
+    @error "Don\'t use units when using the rem() function; only numbers";
+  }
 }
