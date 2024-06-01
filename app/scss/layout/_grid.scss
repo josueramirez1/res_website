@@ -2,9 +2,6 @@
 @use "../util/" as u;
 
 // SAS placeholder
-%widget {
-  padding: u.rem(16);
-}
 
 .grid {
   display: grid;
@@ -54,19 +51,24 @@
   }
 
   &__widget {
+    padding: u.rem(16);
+
     // SASS variable
     // $widget: &;
-    background-color: hsl(300, 100%, 30%);
-    &--magenta {
-      @extend %widget;
-      background-color: hsl(300, 100%, 30%);
-    }
-
-    &--green {
-      // using variables within styles in case if i need to use the extend rule
-      // @extend #{$widget};
-      @extend %widget;
-      background-color: hsl(120, 100%, 27%);
-    }
+    // background-color: hsl(300, 100%, 30%);
+    // In the html, the classes will be together because the magenta and green class are inside the grid and widget block. "&" sign makes sure there is no spaces.
+    // &--magenta
+    // This styling makes it its own class. This is called a helper or utility function.
+    // &.magenta {
+    // @extend %widget;
+    //   background-color: hsl(300, 100%, 30%);
+    // }
+    // &--green
+    // &.green {
+    // using variables within styles in case if i need to use the extend rule
+    // @extend #{$widget};
+    // @extend %widget;
+    //   background-color: hsl(120, 100%, 27%);
+    // }
   }
 }
