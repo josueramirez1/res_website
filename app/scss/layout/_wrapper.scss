@@ -1,0 +1,9 @@
+@use "../util/" as u;
+
+// wrapper so that styling doesn't go beyond what is set.
+.wrapper {
+  // second parameter is the maximum width of the page
+  width: min(100% - u.rem(48), u.rem(1200));
+  // This is another way to center items without making margin top bottom to zero.
+  margin-inline: auto;
+}
